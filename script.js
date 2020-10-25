@@ -60,53 +60,53 @@
 //     { name: 'WISCONSIN', abbreviation: 'WI'},
 //     { name: 'WYOMING', abbreviation: 'WY' }
 // ];
-// //var abbreviation = new Array("--","AL","AK","AS","AZ","AR","CA","CO","CT","DE","DC","FM","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MH","MD","MA","MI"
-// //,"")
-// for(var i = 0;i<usStates.length;i++){
-//     var option = document.createElement("option");
-//     option.text = usStates[i].name+' ['+usStates[i].abbreviation+']';
-//     option.value = i;
-//     var select = document.getElementById("state");
-//     select.appendChild(option);
-// }
-// (function(){
-//     let links = document.getElementsByTagName('link');
-//         for (let i = 0; i < links.length; i++) {
-//             if (links[i].getAttribute('rel') == 'stylesheet') {
-//           let href = links[i].getAttribute('href').split('?')[0];
-//                 let newHref = href + '?version=' 
-//                              + new Date().getMilliseconds();
-//                 console.log(newHref)
-//                 links[i].setAttribute('href', newHref);
-//             }
-//         }
-//   })();
-//   var abbr = [usStates[i].abbreviation];
-// $('#findPark').click(function(){
-//     event.preventDefault();
-//     $(document).ready(function(){
+// var abbreviation = new Array("--","AL","AK","AS","AZ","AR","CA","CO","CT","DE","DC","FM","FL","GA","GU","HI","ID","IL","IN","IA","KS","KY","LA","ME","MH","MD","MA","MI"
+// ,"")
+//  for(var i = 0;i<usStates.length;i++){
+//      var option = document.createElement("option");
+//      option.text = usStates[i].name+' ['+usStates[i].abbreviation+']';
+//      option.value = i;
+//      var select = document.getElementById("state");
+//      select.appendChild(option);
+//  }
+//  (function(){
+//      let links = document.getElementsByTagName('link');
+//          for (let i = 0; i < links.length; i++) {
+//              if (links[i].getAttribute('rel') == 'stylesheet') {
+//            let href = links[i].getAttribute('href').split('?')[0];
+//                  let newHref = href + '?version=' 
+//                               + new Date().getMilliseconds();
+//                  console.log(newHref)
+//                  links[i].setAttribute('href', newHref);
+//              }
+//          }
+//    })();
+//    var abbr = [usStates[i].abbreviation];
+//  $('#findPark').click(function(){
+//      event.preventDefault();
+//      $(document).ready(function(){
 
-//         var stateCode = $('#state').val(abbr);
-//         console.log(stateCode)
+//          var stateCode = $('#state').val(abbr);
+//          console.log(stateCode)
 
-//         if(stateCode = '--'){
-//             $("#error").html('<div class="alert alert-warning alert-dismissible" role="alert">You should enter a City.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-//         }else{
-//             $.ajax({
+//          if(stateCode = '--'){
+//              $("#error").html('<div class="alert alert-warning alert-dismissible" role="alert">You should enter a City.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+//          }else{
+//              $.ajax({
 
-//                 url: "https://developer.nps.gov/api/v1/parks?stateCode=" + stateCode + "&api_key=Yru9dyIiKU5ItOrHg1GCK6KHIJ6IMp5Sd8d1rCot",
-//                 type: "GET",
-//                 dataType: "jsonp",
-//                 success: function(data){
-//                     var parkCard = showPark(data)
+//                  url: "https://developer.nps.gov/api/v1/parks?stateCode=" + stateCode + "&api_key=Yru9dyIiKU5ItOrHg1GCK6KHIJ6IMp5Sd8d1rCot",
+//                  type: "GET",
+//                  dataType: "jsonp",
+//                  success: function(data){
+//                      var parkCard = showPark(data)
 
-//                     $("#parkContent").html(parkCard);
-//                     $('#state').val('--')
-//                 }
-//         })
-//         }
-//     });
-// })
+//                      $("#parkContent").html(parkCard);
+//                      $('#state').val('--')
+//                  }
+//          })
+//          }
+//      });
+//       })
 $( document ).ready(function(){
 
 
@@ -122,8 +122,8 @@ $.ajax({
     }
 })})
 function show(data) {
-    return "<h2><strong>Local Weather For</strong>: " + data.list[0].name +  "</h2><br>" +
-    "<br><h3><strong>Weather</strong>: " + data.list[0].main.temp + " &deg;F<img src='https://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + ".png'></h3><br>" +
-    "<br><h4><strong>Humidity</strong>: " + data.list[0].main.humidity + "%</h4><br>" +
-    "<br><h4><strong>Wind Speed</strong>: " + data.list[0].wind.speed + "mph</h4>" ;
+    return "<h5><strong>Weather For</strong>:<br> " + data.list[0].name +  "</h5>" +
+    "<h5><strong>Temp</strong>:<br> " + data.list[0].main.temp + " &deg;F<img src='https://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + ".png'></h5>" +
+    "<h5><strong>Humidity</strong>:<br> " + data.list[0].main.humidity + "%</h5>" +
+    "<h5><strong>Wind Speed</strong>:<br> " + data.list[0].wind.speed + "mph</h5>" ;
 };
