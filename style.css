@@ -1,0 +1,69 @@
+header{
+    text-align: center;
+    font-size: 60px;
+    font-weight: 800;
+}
+.container{
+    background: lightsalmon;
+    text-align: center;
+    text-size-adjust: 1000px;
+    font-size: 100%
+}
+#hero{
+    background: url("#");
+    height: 1000px;
+    background-position-x: center;
+    background-size: cover;
+}
+#hero .navbar.is-transparent{
+    background-color: transparent;
+}
+.service-buttons{
+    justify-content: center;
+}
+.logos:before{
+    content: "";
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    top: 0;
+    border-top: 1px solid whitesmoke;
+}
+#contact{
+    background: url("https://wallpapertag.com/wallpaper/full/d/f/9/813112-rainbow-desktop-wallpaper-1920x1080-for-mobile.jpg");
+    background-size: cover;
+}
+.title{
+    text-align: center;
+    color: 50% blue, 50% green;
+    background-color: lightblue;
+    text-size-adjust: 25px;
+}
+body{
+    background-color: lightsteelblue;
+}
+@media screen and (max-width: 1023px){
+    .navbar-menu a.has-text-white{
+        color: black;
+    }
+    .navbar-menu a.has-text-white:hover{
+        color: #423;
+    }
+}
+.column{
+    background-color: red;
+}
+div.image{
+    content: url(https://www.hfullerton.com/uploads/1/1/5/4/115474359/disney_orig.jpg);
+    height: 100px;
+    width: 100px;
+}
+p{
+    text-align: center;
+}
+.startWeather {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding: 10px 0;
+}
