@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Local Fun!</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel= "stylesheet" href = "style.css">
+
+   
+  </head>
+  <body>
+
+    <!-- Page Header -->
+    <header>
+      Welcome to Local fun
+    </header> 
+
+    <!-- nav bar  -->
+    <section class="section" id = "hero">
+      <div class="container">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+              <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            </a>
+        
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </a>
+          </div>
+        
+          <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+              <a class="navbar-item has-text-black">
+                Home
+              </a>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link has-text-black">
+                </a>
+        
+                <div class="navbar-dropdown">
+                  <a class="navbar-item">
+                    Weather and Activities
+                  </a>
+                  <hr class = "navbar-divider">
+                  <a class="navbar-item">
+                    Concerts
+                  </a>
+                  <a class="navbar-item">
+                    Parks
+                  </a>
+                </div>
+              </div>
+            </div>
+        
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="buttons">
+                  <a class="button is-info">
+                    <strong>See Weather</strong>
+                  </a>
+                  <a class="button is-warning">
+                    See Local Events
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Start of the intro area of the site -->
+        <section class="section" id = "site-information">
+          <div class="container">
+            <img src = "https://www.hfullerton.com/uploads/1/1/5/4/115474359/disney_orig.jpg" class = "center" style = "height: 400px; width: 800px;"></div>
+            <span class="icon has-text-warning">
+              <i class="far fa-chart-bar fa-lg"></i>
+            </span>
+            <p class="has-text-white" style = "text-align: left; font-size: 30px;">
+              This sites goal is to help everyone enjoy having fun in their local area.
+              Enter your city's location to find data information about the area and what activities you can do.
+              This site gives you information about the weather to help guide the mood of activities in the area.
+              This site also gives you information about upcoming concert events and parks in the area. 
+            </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- interactive input area for the site - api out  -->
+    <section class="section" id = "services">
+      <div class="container">
+
+        <!-- Weather component section -->
+        <div class="has-text-centered">
+          <h2 class="title is-2">Weather and Events</h2>
+          <h6 class="subtitle is-2 has-text-black">
+            The area you have been looking for!!!
+          </h6>
+        </div>
+        <div class="columns pt-6">
+          <div class="column my-column">
+            <div class="card">
+              <div class="card-content" style= "margin: 0px;">
+                <div class="has-text-centered">
+                  <span class="icon is-size-1 pt-6 my-3">
+                    <i class="fas fa-paint-brush"></i>
+                  </span>
+                </div>
+                <p class="title is-4" style = "font-size: 30px;">
+                  Weather 
+                </p>
+                <div class="content">
+                  <div id="show" class="startWeather"></div>
+                  <div id="show2" class="startWeather"></div>
+                </div>
+              </div>
+              <footer class="card-footer">
+                <a href = "" class = "card-footer-item">Learn More</a>
+              </footer>
+            </div>
+          </div>
+        </div>
+
+        <!-- Events area of the site -->
+        <div class="columns pt-6">
+          <div class="column my-column">
+            <div class="event-col">
+              <!-- Title of the event search section -->
+              <p class="title is-4" style = "font-size: 30px;">
+                Events
+              </p>
+              <!-- Form for search param for the api -->
+              <form class="ev-form">
+                <!-- text input fields  -->
+                <div>
+                  <input class="input ev-input is-primary" id="ev-search-city" type="text" placeholder="City name here" required>
+                  <input class="input ev-input is-primary" id="ev-search-type" type="text" placeholder="Event type (i.e. rock music, sports, etc)" required>
+                </div>
+                <!-- control buttons for the event input field -->
+                <div class="control">
+                  <button class="button is-link" id="ev-search-btn">Search</button>
+                  <button class="button is-danger" id="ev-clr-search-btn">Clear Search</button>
+                </div>
+                <!-- area where the events will populate the page -->
+                <div id="events-holder">
+                  <!-- location where the <div id="event(i)"></div> spawns -->
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Start of the Parks search section -->
+          <div class="column my-column">
+            <div class="pk-col">
+              <p class="title is-4" style = "font-size: 30px;">
+                Parks
+              </p>
+              <div class="field">
+                <div class="control">
+                  <div class="select is-primary" id="pkActSelect">
+                    <select>
+                      <option type="test">Astronomy</option>
+                      <option type="test">Biking</option>
+                      <option type="test">Bird Watching</option>
+                      <option type="test">Boating</option>
+                      <option type="test">Climbing</option>                      
+                      <option type="test">Fishing</option>
+                      <option type="test">Guided Tours</option>
+                      <option type="test">Theater</option>
+                    </select>
+                    <button class="button is-link pk-sub" id="pk-search-btn">Search</button>
+                  </div>
+                  <div id="pk-holder">
+
+                  </div>
+                </div>
+              </div>
+              <div>
+
+              </div>            
+            </div>
+          </div>
+        </div>
+
+        <!-- site decoration picures -->
+        <div class="field-is-grouped pt-6 is-flex service buttons">
+        </div>
+        <div class="columns mt-6 pt-5 logos is-relative">
+          <div class="column my-column">
+            <img src="https://www.gannett-cdn.com/presto/2020/10/23/PDTF/67435f05-8c61-42ae-80f7-7554dcc0ec6b-weather.PNG?auto=webp&crop=629,354,x0,y8&format=pjpg&width=1200" alt="Weather" style = "height: 325px; width: 500px;">
+          </div>
+          <div class="column my-column">
+            <img src="https://www.outlookindia.com/outlooktraveller/public/uploads/articles/explore/music-concerts.jpg" alt="Concerts" style = "height: 325px; width: 400px;">
+          </div>
+          <div class="column my-column">
+            <img src="https://www.michigan.org/sites/default/files/uploads/2018/Moskey-Basin-isle-royale.jpg" alt="Parks">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Area to contact the site creators -->
+    <section class="section" id = "contact">
+      <div class="container">
+        <div class="columns">
+          <div class="column my-column">
+            <div class="card">
+              <header class="card-header has-background-warning">
+                <p class="card-header-title">
+                  Contact Information
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="field">
+                  <label for="" class="label">Name</label>
+                  <p class="control">
+                    <input type="text" class="input" placeholder = "Name">
+                  </p>
+                </div>
+                <div class="field">
+                  <label for="" class="label">Phone Number</label>
+                  <p class="control">
+                    <input type="text" class="input" placeholder = "Phone number">
+                  </p>
+                </div>
+                <div class="field">
+                  <label for="" class="label">Email</label>
+                  <p class="control">
+                    <input type="email" class="input" placeholder = "Email">
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control">
+                    <button class="button is-warning">
+                      Submit
+                    </button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- names of the individuals that worked on the site -->
+          <div class="column my-column has-text-white pt-6 pl-6">
+            <span class="icon is-size-1 pt-6 my-3 has-text-grey-lighter">
+              <i class="fas fa-quote-left"></i>
+            </span>
+            <p class="control" style = "font-size: 35px; font-weight: normal; color: white;" >Created by:<br>Ryan Stout<br>Sean Sugrue<br>Shane Kraycs<br>Lawrence Lipscomb<br>John Alexander</p>
+            <span class="icon is-size-1 pt-6 pr-3 my-3 has-text-grey-lighter is-pulled-right">
+              <i class="fas fa-quote-right"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <h1 class="footer-title has-text-centered">Site Powered By:</h1>
+
+    <footer class="footer columns">
+      <div class="content has-text-centered column">
+          <a class="bulma-link" href="https://bulma.io">
+            <img class="bulma-logo logo" src="assets/images/bulma_logo.png">
+          </a> 
+      </div>
+
+      <div class="column">
+        <a class="ftweather" href="https://openweathermap.org/api">
+          <img class="weatherLogo" src="assets/images/weather_logo.png">
+        </a>
+      </div>
+
+      <div class="column">
+        <a href="http://eventful.com/">
+          <img class="eventfulLogo" src="assets/images/eventful-logo.png">
+        </a>
+      </div>
+
+    </footer>
+
+    <!-- javascript calls -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!--<script src="assets/javascript/script.js"></script> -->
+  <script src="script.js"></script> 
+  <script src="assets/javascript/eventful.js"></script>
+
+  </body>
+</html>
